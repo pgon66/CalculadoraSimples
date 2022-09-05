@@ -18,7 +18,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
     private String sinal;
 
-    private Button button_resultado, button_adicao, button_ce,
+    private Button button_resultado, button_ponto, button_adicao, button_ce,
             button_subtracao, button_divisao, button_multiplicacao,
             button_zero, button_um, button_dois, button_tres,
             button_quatro, button_cinco, button_seis, button_sete, button_oito, button_nove;
@@ -47,6 +47,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         button_subtracao.setOnClickListener(this);
         button_divisao.setOnClickListener(this);
         button_multiplicacao.setOnClickListener(this);
+        button_ponto.setOnClickListener(this);
 
 
     }
@@ -59,6 +60,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         button_subtracao = (Button) findViewById(R.id.button_subtracao);
         button_divisao = (Button) findViewById(R.id.button_divisao);
         button_multiplicacao = (Button) findViewById(R.id.button_multiplicacao);
+        button_ponto = (Button) findViewById(R.id.button_ponto);
         button_zero = (Button) findViewById(R.id.button_zero);
         button_um = (Button) findViewById(R.id.button_um);
         button_dois = (Button) findViewById(R.id.button_dois);
@@ -82,6 +84,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
             editTextVisor.setText(editTextVisor.getText().toString() + String.valueOf(num));
         }
 
+    }
+
+    //Acrescenta um "." ao valor
+    private void ponto(String ponto) {
+        editTextVisor.setText(editTextVisor.getText().toString() + ponto);
     }
 
     //Limpa o visor, e cancela a operação, iniciando uma nova
@@ -200,6 +207,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
             case R.id.button_resultado:
                 resultado();
+                break;
+
+            case R.id.button_ponto:
+                ponto(".");
                 break;
 
             case R.id.button_ce:
